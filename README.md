@@ -1,6 +1,6 @@
 # Building Instruction Data from Unlabeled Corpus
 
-This is the Implementation for the paper "REInstruct: Building Instruction Data from Unlabeled Corpus".
+This is the Re-implementation for the paper "REInstruct: Building Instruction Data from Unlabeled Corpus".
 
 ![Overview](assets/overview.png)
 
