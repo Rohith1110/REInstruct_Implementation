@@ -1,21 +1,18 @@
 # REInstruct
 
-This is the official repository for ACL 2024 Findings paper "REInstruct: Building Instruction Data from Unlabeled Corpus".
+This is the Implementation for the paper "REInstruct: Building Instruction Data from Unlabeled Corpus".
 
 ![Overview](assets/overview.png)
 
 ## Installation
 
+This we have implemented in google collab
 ```
-# create conda environment
-conda create -n re_instruct python=3.8
-conda activate re_instruct
-
 # editable install
-pip install -e .
+!pip install -e .
 
 # install flash attention separately
-pip install flash-attn==2.5.7
+!pip install flash-attn==2.5.7
 ```
 
 ## Prepare Unlabeled Texts
