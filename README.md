@@ -1,23 +1,23 @@
 # Building Instruction Data from Unlabeled Corpus
 
-This is the Re-implementation for the paper "REInstruct: Building Instruction Data from Unlabeled Corpus".
+This is my re-implementation of the paper "REInstruct: Building Instruction Data from Unlabeled Corpus".
 
 ![Overview](assets/overview.png)
 
-## Installation
+## Installation Instructions
 
-This we have implemented in google collab
+The implementation has been set up in Google Colab. To install the necessary dependencies, use the following commands:
 ```
-# editable install
+# Editable install
 !pip install -e .
 
-# install flash attention separately
+# Install Flash Attention separately
 !pip install flash-attn==2.5.7
 ```
 
 ## Prepare Unlabeled Texts
 
-Download [C4 dataset](https://huggingface.co/datasets/allenai/c4) and decompress text files in `en` folder. Select candidate texts using the following scripts:
+Start by downloading the [C4 dataset](https://huggingface.co/datasets/allenai/c4) and decompress the text files in the `en` folder. Use the following script to select the candidate texts:
 
 ```bash
 python re_instruct/data/prepare_unlabeled_texts.py \
@@ -25,11 +25,12 @@ python re_instruct/data/prepare_unlabeled_texts.py \
     --output_dir <output_dir>
 ```
 
-## Training
+## Training the Model
 
-Example script for finetuning using 8 A100-80G GPUs:
+For fine-tuning the model, you can use the following script, which is designed for training with 8 A100-80G GPUs:
 
 ```bash
+
 torchrun --nproc_per_node=8 --master_port=2404 re_instruct/train/sft.py \
     --data_path data/dummy_instruction_data.json \
     --model_name_or_path huggyllama/llama-7b \
@@ -52,13 +53,15 @@ torchrun --nproc_per_node=8 --master_port=2404 re_instruct/train/sft.py \
     --report_to wandb \
     --run_name dummy_sft \
     --logging_steps 1
+
 ```
 
-## Inference
+## Running Inference
 
-Example script for inference using 8 A100-80G GPUs:
+To run inference using 8 A100-80G GPUs, use the following command:
 
 ```bash
+
 accelerate launch --num_processes=8 re_instruct/inference/generate_output.py \
     --data_path data/dummy_instruction_data.json \
     --model_name_or_path <path_to_trained_checkpoint> \
@@ -66,25 +69,30 @@ accelerate launch --num_processes=8 re_instruct/inference/generate_output.py \
     --prompt_type <prompt_type> \
     --max_new_tokens 512 \
     --do_sample False
+
 ```
 
-## Filter Rewritten Responses
+## Filtering Rewritten Responses
 
-To filter out failed rewritten responses:
+To filter out any failed rewritten responses, use the following script:
 
 ```bash
+
 python re_instruct/data/filter_rewritten.py \
     --data_path <path_to_data_for_filtering> \
     --output_dir <output_dir> \
     --remove_refusal True
+
 ```
 
-## Sunburst Visualization
+## Visualizing with Sunburst
 
-[Install required dependency](https://github.com/nikitakit/self-attentive-parser#installation) and visualize instructions using the following scripts:
+To visualize instructions using a sunburst plot, first, install the necessary dependencies from [Install required dependency](https://github.com/nikitakit/self-attentive-parser#installation) and visualize instructions using the following scripts:
 
 ```bash
+
 python re_instruct/data/sunburst_visualize.py \
     --data_path example.json \
     --output_svg_path example.svg
+
 ```
