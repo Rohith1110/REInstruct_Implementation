@@ -9,11 +9,18 @@ This paper introduces REInstruct, a novel method for automatically building high
 
 The implementation has been set up in Google Colab. To install the necessary dependencies, use the following commands:
 ```
-# Editable install
-!pip install -e .
-
-# Install Flash Attention separately
-!pip install flash-attn==2.5.7
+python = ">=3.8"
+dependencies:
+    torch==2.1.2,
+    transformers==4.37.0,
+    accelerate==0.26.1,
+    "datasets",
+    "fire",
+    "wandb",
+    "spacy",
+    "benepar",
+    "plotly",
+    "kaleido",
 ```
 
 ## Prepare Unlabeled Texts
