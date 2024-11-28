@@ -19,11 +19,11 @@ python = >=3.8
     accelerate==0.26.1,
     datasets,
     fire,
-    "wandb",
-    "spacy",
-    "benepar",
-    "plotly",
-    "kaleido",
+    wandb,
+    spacy,
+    benepar,
+    plotly,
+    kaleido,
 ```
 
 ## Prepare Unlabeled Texts
