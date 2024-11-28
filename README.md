@@ -9,13 +9,16 @@ This paper introduces REInstruct, a novel method for automatically building high
 
 The implementation has been set up in Google Colab. To install the necessary dependencies, use the following commands:
 ```
-python = ">=3.8"
-dependencies:
+python = >=3.8
+
+```
+```
+### Dependencies:
     torch==2.1.2,
     transformers==4.37.0,
     accelerate==0.26.1,
-    "datasets",
-    "fire",
+    datasets,
+    fire,
     "wandb",
     "spacy",
     "benepar",
