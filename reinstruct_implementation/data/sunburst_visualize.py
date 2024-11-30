@@ -21,11 +21,11 @@ def main(
     data_path: str,
     output_svg_path: str,
 ):
-    """visualize verb-noun structure of instructions"""
-    # read data
+    """visualize the verb-noun structure of instructions"""
+    # reading the data
     data = read_json(data_path)
 
-    # get insts
+    # getting the insts
     insts = [_["instruction"] for _ in data]
 
     # helper function to get verb-noun
@@ -40,7 +40,7 @@ def main(
             inst = inst.replace(punc, " ")
         inst = " ".join(inst.split())
 
-        # get first sent
+        # get the first sent
         doc = nlp(inst)
         first_sent = list(doc.sents)[0]
 
@@ -73,7 +73,7 @@ def main(
     for inst in tqdm(insts):
         verb_nouns.append(get_verb_noun(inst))
 
-    # draw sunburst graph
+    # draw the sunburst graph
     verb_nouns = pd.DataFrame(verb_nouns)
     phrases = pd.DataFrame(verb_nouns).dropna()
     phrases[["verb", "noun"]].groupby(["verb", "noun"]).size().sort_values(
@@ -100,7 +100,7 @@ def main(
         font_family="Times New Roman",
     )
 
-    # save as an svg file
+    # save it as svg file
     fig.write_image(output_svg_path)
 
 
