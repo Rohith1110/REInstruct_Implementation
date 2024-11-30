@@ -1,4 +1,4 @@
-"""report basic data info"""
+"""report the basic data info"""
 
 import fire
 import numpy as np
@@ -16,13 +16,13 @@ def sft_data(
     insts = [_["instruction"] for _ in data]
     outputs = [_["output"] for _ in data]
 
-    # get info
+    # getting the info
     info = {}
     info["data_size"] = len(data)
     info["avg_inst_len"] = round(np.array(list(map(len, insts))).mean(), 2)
     info["avg_output_len"] = round(np.array(list(map(len, outputs))).mean(), 2)
 
-    # print info
+    # printing the information
     print(prettify_dict(info))
 
 
