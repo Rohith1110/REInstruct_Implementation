@@ -21,7 +21,7 @@ Cost-effective, scalable, and diverse data creation.
 
 Manual annotation, while accurate, is prohibitively expensive and not scalable. Synthetic data distillation from proprietary models faces challenges of restricted access and variable data quality. In contrast, REInstruct leverages unlabeled corpora and an automated pipeline to produce diverse, high-quality datasets that are scalable and cost-effective. It represents a significant step forward in democratizing NLP advancements.
 
-![Overview](assets/overview.png)
+![Overview](assets/Explanation.png)
 
 
 
