@@ -1,4 +1,4 @@
-"""filter rewritten data"""
+"""for filtering rewritten data"""
 
 from pathlib import Path
 from typing import Dict
@@ -15,30 +15,30 @@ def rewritten_filter(
 ):
     """minimal filter"""
 
-    # helper function
+    # This is helper function
     def keep(data_point: Dict[str, str]):
         """whether to keep the data_point"""
         # get inst and output
         inst = data_point["instruction"]
         output = data_point["output"]
 
-        # inst too long
+        # If inst too long
         if len(inst) > 500:
             return False
 
-        # contains too much '- '
+        # If contains too much '- '
         if output.count("- ") > 10:
             return False
 
-        # contains 'this' in inst
+        # If contains 'this' in inst
         if "this" in inst.lower():
             return False
 
-        # contains 'web text' in output
+        # If contains 'web text' in output
         if "web text" in output.lower():
             return False
 
-        # contains 'based on the information provided' in output
+        # If contains 'based on the information provided' in output
         if "based on the information provided" in output.lower():
             return False
 
@@ -53,11 +53,11 @@ def rewritten_filter(
 
         return True
 
-    # read data
+    # read the data
     data = read_json(data_path)
     filtered_data = [_ for _ in data if keep(_)]
 
-    # save filtered data
+    # save the filtered data
     Path(output_dir).mkdir(parents=True, exist_ok=False)
     save_json(filtered_data, Path(output_dir) / "data.json")
 
