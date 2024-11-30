@@ -5,6 +5,26 @@ This paper introduces REInstruct, a novel method for automatically building high
 
 ![Overview](assets/overview.png)
 
+## Exisitng VS REInstruct
+
+#### Manual Annotation
+Relies on human experts.
+Accurate but time-consuming, expensive, and hard to scale.
+
+#### Distillation from Proprietary Models
+Generates synthetic data using pre-trained models.
+Limited by restricted access and variable quality.
+
+#### Building from Unlabeled Corpus (REInstruct)
+Automates task generation from raw text.
+Cost-effective, scalable, and diverse data creation.
+
+Manual annotation, while accurate, is prohibitively expensive and not scalable. Synthetic data distillation from proprietary models faces challenges of restricted access and variable data quality. In contrast, REInstruct leverages unlabeled corpora and an automated pipeline to produce diverse, high-quality datasets that are scalable and cost-effective. It represents a significant step forward in democratizing NLP advancements.
+
+![Overview](assets/overview.png)
+
+
+
 ## Installation Instructions
 
 The implementation has been set up in Google Colab. To install the necessary dependencies, use the following commands:
