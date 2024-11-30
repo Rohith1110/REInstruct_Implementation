@@ -1,4 +1,4 @@
-"""get candidate texts from c4"""
+"""get the candidate texts from c4 dataset"""
 
 import re
 import random
@@ -21,16 +21,16 @@ def main(
     output_dir: str,
     data_size: int = None,
 ):
-    """get candidate text"""
+    """getting candidate text"""
     # make dir
     Path(output_dir).mkdir(parents=True, exist_ok=False)
 
-    # get verbs
+    # get the verbs
     verbs = read_json("data/verbs-all.json")
     norm_verb = set([_[0] for _ in verbs])
     ing_verb = set([_[-1] for _ in verbs])
 
-    # helper function to keep text
+    # helper function for keeping text
     def keep(
         d: Dict[str, str],
     ):
@@ -108,7 +108,7 @@ def main(
 
         return False
 
-    # get candidate texts
+    # get the candidate texts
     candidate_texts = []
     for file_path in tqdm(Path(c4_en_dir).iterdir()):
         if str(file_path).endswith(".json"):
@@ -124,7 +124,7 @@ def main(
         d["output"] = d["text"]
         d.pop("text")
 
-    # save candidate texts
+    # saving the candidate texts
     save_json(candidate_texts, Path(output_dir) / "data.json")
 
 
