@@ -1,4 +1,4 @@
-"""generate inst"""
+"""generate the inst"""
 
 from pathlib import Path
 from functools import partial
@@ -127,12 +127,12 @@ def main(
             )
             insts += [_.split(tokenizer.eos_token)[0] for _ in raw_insts]
 
-    # gather insts
+    # gathering the insts
     gathered_insts = gather_object(insts)
 
     # post processing
 
-    # add insts to output data
+    # adding insts to output data
     for d, inst in zip(data, gathered_insts):
         d["instruction"] = inst
 
