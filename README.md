@@ -1,7 +1,7 @@
 # Building Instruction Data from Unlabeled Corpus
 
 This is our re-implementation of the paper "REInstruct: Building Instruction Data from Unlabeled Corpus".
-This paper introduces REInstruct, a novel method for automatically building high-quality instruction data from unlabeled text corpora without heavy reliance on proprietary large language models (LLMs) or extensive human annotation. The authors propose a simple and scalable approach that addresses the challenges of manually annotating instruction data, which is typically difficult, costly, and hard to scale
+This paper introduces REInstruct, a novel method for automatically building high-quality instruction data from unlabeled text corpora without heavy reliance on proprietary large language models (LLMs) or extensive human annotation. The authors propose a simple and scalable approach that addresses the challenges of manually annotating instruction data, which is typically difficult, costly, and hard to scale.
 
 ![Overview](assets/overview.png)
 
