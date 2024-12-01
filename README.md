@@ -27,7 +27,7 @@ Manual annotation, while accurate, is prohibitively expensive and not scalable. 
 
 ## Installation Instructions
 
-The implementation has been set up in Google Colab. To install the necessary dependencies, use the following commands:
+To install the necessary dependencies, use the following commands:
 
 Language:
 ```
@@ -60,7 +60,7 @@ python re_instruct/data/prepare_unlabeled_texts.py \
 
 ## Training the Model
 
-For fine-tuning the model, you can use the following script, which is designed for training with 8 A100-80G GPUs:
+For fine-tuning the model, you can use the following script:
 
 ```bash
 
@@ -91,7 +91,7 @@ torchrun --nproc_per_node=8 --master_port=2404 re_instruct/train/sft.py \
 
 ## Running Inference
 
-To run inference using 8 A100-80G GPUs, use the following command:
+To run inference, use the following command:
 
 ```bash
 
