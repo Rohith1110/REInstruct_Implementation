@@ -72,7 +72,7 @@ def main(
     tokenizer = AutoTokenizer.from_pretrained(
         model_name_or_path,
     )
-    # set pad_token and padding_side
+    # set pad token and padding side
     tokenizer.pad_token = tokenizer.eos_token
     tokenizer.padding_side = "left"
 
